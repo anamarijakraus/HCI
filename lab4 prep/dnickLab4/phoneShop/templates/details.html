@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.js' %}"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid me-5">
+        <a class="navbar-brand text-light ms-5 ps-5" href="#">Lab4 DNICK</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex flex-column justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="{% url 'index' %}" class="nav-link active text-light">Home</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h3 class="text-center mb-5">Details for phone {{ phone.id }}</h3>
+    <div class="row align-items-start">
+        <!-- Image column -->
+        <div class="col-md-5 text-center">
+            <img src="{{ phone.slika.url }}" alt="{{ phone.id }}"
+                 class="img-fluid rounded shadow" style="max-height: 450px; object-fit: contain;">
+        </div>
+
+        <!-- Text column -->
+        <div class="col-md-7 d-flex flex-column justify-content-center h-100">
+            <h2>{{ phone.model }}</h2>
+            <p><strong>Proizvoditel:</strong> {{ phone.proizvoditel }}</p>
+            <p><strong>Tip:</strong> {{ phone.tip }}</p>
+            <p class="text-muted mt-3 mb-4">
+                Your {{ phone.model }} has a guarantee of 12 months. Bla bla
+            </p>
+            <a href="#" class="btn btn-success w-25">Add to cart</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
