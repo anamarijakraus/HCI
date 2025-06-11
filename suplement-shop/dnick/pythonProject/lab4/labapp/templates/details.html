@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}"/>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.js' %}"></script>
+
+</head>
+<body>
+
+
+<div class="bg-secondary-subtle">
+    <nav class="navbar pt-4 justify-content-around">
+        <img src="/media/logo.png.png" class="center">
+    </nav>
+</div>
+
+
+<div class="container-fluid p-3 bg-secondary-subtle">
+    <h3 class="text-center p-5 bg-success-subtle text-bg-warning"> {{ suplement.ime }}</h3>
+    <div class="row align-items-start">
+        <!-- Image column -->
+        <div class="col-md-5 text-center">
+            <img src="{{ suplement.slika.url }}" alt="{{ suplement.id }}"
+                 class="img-fluid rounded shadow" style="max-height: 450px; object-fit: contain;">
+        </div>
+
+        <!-- Text column -->
+        <div class="col-md-7 d-flex flex-column justify-content-center h-100">
+            <h2>{{ phone.model }}</h2>
+            <p><strong>Производител:</strong> {{ suplement.proizvoditel }}</p>
+            <p><strong>Шифра:</strong> {{ suplement.shifra}}</p>
+            <p><strong>Достапност:</strong>  {{ suplement.dostapnost }}</p>
+            <p><strong>Цена:</strong> {{ suplement.cena }}</p>
+
+        </div>
+    </div>
+    <p class="container text-muted mt-3 mb-4">
+        {{ suplement.ime }} e mnogu dobar ne znam ne koristam sho da napisham
+    </p>
+</div>
+
+
+</body>
+</html>

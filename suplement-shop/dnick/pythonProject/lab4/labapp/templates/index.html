@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}"/>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.js' %}"></script>
+
+</head>
+<body>
+
+<div class="bg-secondary-subtle">
+    <nav class="navbar pt-4 justify-content-around">
+        <img src="/media/logo.png.png" class="center">
+    </nav>
+</div>
+
+{#<header class="d-flex flex-column ">#}
+{#    <img src="/media/logo.png" class="center">#}
+{#</header>#}
+
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid me-5"></div>
+</nav>
+
+<section class="bg-secondary-subtle">
+    <div class="container ">
+        <h3 class="text-center pt-3 pb-5 bg-secondary-subtle"></h3>
+        <div class="row h-50">
+            {% for suplement in suplement_list %}
+                <div class="col-4 mb-4 d-flex flex-column justify-content-center ps-5">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ suplement.slika.url }}" class="card-img-top mx-auto d-block"
+                             style="width: 70%; height: 200px;"
+                             alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{ suplement.ime }}</h5>
+                            <p class="card-text text-center">Цена: {{ suplement.cena }}</p>
+                            <a href="{% url 'details' suplement.id %}"
+                               class="btn btn-outline-secondary text-center text-dark w-100">Види повеќе</a>
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</section>
+
+</body>
+</html>
